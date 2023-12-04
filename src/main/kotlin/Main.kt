@@ -5,8 +5,13 @@ fun main() {
     val time = measureTimeMillis {
         runBlocking {
             println("Weather forecast")
-            printForecast()
-            printTemperature()
+            launch {
+                printForecast()
+            }
+            launch {
+                printTemperature()
+            }
+            println("Have a good day!")
         }
     }
     println("Execution time: ${time/1000.0} seconds")
