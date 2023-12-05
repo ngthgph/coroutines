@@ -5,7 +5,12 @@ fun main() {
     val time = measureTimeMillis {
         runBlocking {
             println("Weather forecast")
-            println(getWeatherReport())
+            try {
+                println(getWeatherReport())
+            } catch (e: AssertionError) {
+                println("Caught Exception in runBlocking(): $e")
+                println("Report unavailable at this time")
+            }
             println("Have a good day!")
         }
 
