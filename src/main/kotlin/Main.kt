@@ -8,6 +8,19 @@ fun main() {
             println(getWeatherReport())
             println("Have a good day!")
         }
+
+//        // For test why have to use async, Deferred and await
+//        runBlocking {
+//            var fore = ""
+//            var temp = ""
+//            launch {
+//                fore = getForecast()
+//            }
+//            launch {
+//                temp = getTemperature()
+//            }
+//            println("$fore $temp")
+//        } => result nothing as fore, temp printed before get the value
     }
     println("Execution time: ${time/1000.0} seconds")
 }
